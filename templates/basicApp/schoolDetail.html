@@ -1,13 +1,25 @@
 {% extends 'basicApp/basicAppBase.html' %}
 {% block body_block %}
 <div class="jumbotron">
-    <h2>
+    <h3>
     SCHOOL DETAILS :
-    </h2>
-    <h3> NAME: {{ schoolDetails.name }}</h3>
-    <h3> PRINCIPAL: {{ schoolDetails.principal }} </h3>
-    <h3> LOCATION: {{ schoolDetails.location }} </h3>
+    </h3>
+    <h4> NAME: {{ schoolDetails.name }}</h4>
+    <h4> PRINCIPAL: {{ schoolDetails.principal }} </h4>
+    <h4> LOCATION: {{ schoolDetails.location }} </h4>
+
+    <h3> STUDENTS: </h3>
+    <ul>
+        {% for i in schoolDetails.students.all %}
+       <h4> <li>NAME: {{i.name}} </li></h4>
+        <h4><li>AGE: {{i.age}}</li> </h4>
+        <hr>
+        {% endfor %}
+    </ul>
 </div>
-
-
-{% endblock %}
+<div class='containeri'>
+     <p>
+     <a href='{% url 'basicApp:update' pk=schoolDetails.pk %}'UPDATE</a>
+     </p>
+    </div>
+{% endblock %} 
