@@ -17,9 +17,10 @@
         {% endfor %}
     </ul>
 </div>
-<div class='containeri'>
+<div class='container'>
      <p>
-     <a href='{% url 'basicApp:update' pk=schoolDetails.pk %}'UPDATE</a>
+         <a role='button' class='btn btn-warning' href='{% url 'basicApp:update' pk=schoolDetails.pk %}'>UPDATE</a>
+         <a role='button' class='btn btn-danger' href = "{% url 'basicApp:delete' pk=schoolDetails.pk %}">DELETE</a>
      </p>
     </div>
 {% endblock %} 

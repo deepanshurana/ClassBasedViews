@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from basicApp.models import School, Student
 from django.views.generic import (CreateView, UpdateView,
                                   DeleteView)
+from django.urls import reverse_lazy
 # Create your views here.
 
 
@@ -37,3 +38,8 @@ class schoolCreateView(CreateView):
 class schoolUpdateView(UpdateView):
     fields = ('name', 'principal')
     model = School
+
+
+class schoolDeleteView(DeleteView):
+    model = School
+    success_url = reverse_lazy('basicApp:list')
